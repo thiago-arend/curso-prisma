@@ -8,7 +8,7 @@ async function getPosts() {
 }
 
 async function getPost(id: number) {
-  return await prisma.post.findFirst({
+  return await prisma.post.findUnique({
     where: {
       id
     }
