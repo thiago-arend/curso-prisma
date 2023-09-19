@@ -3,7 +3,7 @@ export type Post = {
   username: string;
   title: string;
   content: string;
-  createAt: Date;
+  createAt?: Date;
 }
 
 export type ApplicationError = {
