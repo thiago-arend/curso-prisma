@@ -1,17 +1,20 @@
-import db from "../database/database";
+import prisma from "../database/database";
+import { Product } from "@prisma/client";
 
-const TABLE_NAME = "products";
-
-async function getProducts() {
-  // TODO
+function getProducts() {
+  return prisma.product.findMany();
 }
 
-async function getProduct(id: number) {
-  // TODO
+function getProduct(id: number) {
+  return prisma.product.findUnique({
+    where: { id }
+  });
 }
 
-async function createProduct(product) {
-  // TODO
+function createProduct(product: Product) {
+  return prisma.product.create({
+    data: product
+  })
 }
 
 const productRepository = {
