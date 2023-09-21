@@ -36,7 +36,9 @@ import prisma from "./database";
       id: true
     },
     where: {
-      jobId: null
+      jobId: {
+        equals: null
+      }
     },
     orderBy: {
       _count: {
