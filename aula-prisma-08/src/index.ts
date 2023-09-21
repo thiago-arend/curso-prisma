@@ -29,4 +29,27 @@ import prisma from "./database";
     }
   });
   console.log(secondSelect);
+
+  const thirdSelect = await prisma.student.groupBy({
+    by: ["class"],
+    _count: {
+      id: true
+    },
+    where: {
+      jobId: null
+    },
+    orderBy: {
+      _count: {
+        id: "desc"
+      }
+    },
+    having: {
+      id: {
+        _count: {
+          gte: 500
+        }
+      }
+    }
+  });
+  console.log(thirdSelect);
 })()
